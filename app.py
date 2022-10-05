@@ -79,16 +79,8 @@ def runForAll():
         break
 
 
-@app.route("/",methods =["GET", "POST"])
+@app.route("/")
 def home():
-    if request.method == "POST":
-        url = request.form.get("url")
-        mailId = request.form.get("email")
-        if(isValidUrl(url)):
-            sheet = connect()
-            sheet.insert_row([url,mailId],2)
-            return "Subscribed Succesfully! Dont Worry our Server will Trigger a mail when the book is available Thanks for using our service"
-        return "Enter a valid URL"
     return "Hello World"
    
 @app.route("/about")
