@@ -71,7 +71,7 @@ def isValidUrl(url):
     else:
         return True
 
-@scheduler.task('interval', id='runForAll', seconds=5)
+# @scheduler.task('interval', id='runForAll', seconds=5)
 def runForAll():
     data = getInfo()
     for idx,i in enumerate(data):
@@ -89,7 +89,7 @@ def home():
             sheet.insert_row([url,mailId],2)
             return "Subscribed Succesfully! Dont Worry our Server will Trigger a mail when the book is available Thanks for using our service"
         return "Enter a valid URL"
-    return render_template("home.html")
+    return "Hello World"
    
 @app.route("/about")
 def about():
@@ -99,7 +99,7 @@ def about():
 
 
 if __name__ == "__main__":
-    scheduler.start()
+    # scheduler.start()
     app.run(debug=True)
    
 
